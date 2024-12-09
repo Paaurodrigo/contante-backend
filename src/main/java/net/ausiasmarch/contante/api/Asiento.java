@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.ausiasmarch.contante.entity.AsientoEntity;
+import net.ausiasmarch.contante.entity.InventariableEntity;
 import net.ausiasmarch.contante.service.AsientoService;
 
 
@@ -99,6 +100,12 @@ public class Asiento {
     @DeleteMapping("/all")
     public ResponseEntity<Long> deleteAll() {
         return new ResponseEntity<Long>(oAsientoService.deleteAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/inventariable/all")
+    public ResponseEntity<InventariableEntity> getInventariable() {
+        return new ResponseEntity<InventariableEntity>(oAsientoService.countAsientosInventariables(), HttpStatus.OK);
+        
     }
 
 }

@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import net.ausiasmarch.contante.entity.AsientoEntity;
+import net.ausiasmarch.contante.entity.InventariableEntity;
 
 public interface AsientoRepository extends JpaRepository<AsientoEntity, Long> {
 
@@ -29,6 +30,9 @@ public interface AsientoRepository extends JpaRepository<AsientoEntity, Long> {
       String strComentarios, Long id_tipoasiento, Pageable oPageable);
 
   Page<AsientoEntity> findByTipoasientoId(Long id_tipoasiento, Pageable oPageable);
-  
 
+  //Filtrar por asientos inventariables=1
+  @Query(value = "SELECT COUNT(*) as Inventariable FROM asiento WHERE inventariable=1", nativeQuery = true)
+  InventariableEntity countAsientosInventariables();
+  
 }

@@ -40,4 +40,8 @@ public interface ApunteRepository extends JpaRepository<ApunteEntity, Long> {
 
         @Query(value = "SELECT sum(debe) AS totalDebe, sum(haber) AS totalHaber  FROM apunte WHERE id_tipoapunte = :id_tipoapunte", nativeQuery = true)
         SumasProjection totalByTipoapunteId(Long id_tipoapunte);
+
+        @Query(value = "SELECT * from apunte where MONTH(momentstamp)=:mes order by momentstgetInventariable()amp asc limit 1;", nativeQuery = true)
+        ApunteEntity findFirstByMonth(@Param("mes") Integer mes);
+
 }

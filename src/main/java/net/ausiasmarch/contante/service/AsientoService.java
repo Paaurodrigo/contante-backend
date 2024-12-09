@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import net.ausiasmarch.contante.entity.AsientoEntity;
+import net.ausiasmarch.contante.entity.InventariableEntity;
 import net.ausiasmarch.contante.exception.ResourceNotFoundException;
 import net.ausiasmarch.contante.repository.AsientoRepository;
 
@@ -198,5 +199,15 @@ public class AsientoService implements ServiceInterface<AsientoEntity> {
         return oAsientoRepository.findAll()
                 .get(oRandomService.getRandomInt(0, (int) (oAsientoRepository.count() - 1)));
     }
+
+    public InventariableEntity countAsientosInventariables() {
+        return oAsientoRepository.countAsientosInventariables();
+    }
+
+
+
+    
+
+
 
 }

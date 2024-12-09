@@ -114,4 +114,11 @@ public class Apunte {
         return new ResponseEntity<Long>(oApunteService.deleteAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/primerodelmes/{mes}")
+    public ResponseEntity<ApunteEntity> getPrimerDelMes(@PathVariable Integer mes) {
+        return new ResponseEntity<ApunteEntity>(oApunteService.findFirstByMonth(mes), HttpStatus.OK);
+    }
+
+    
+
 }

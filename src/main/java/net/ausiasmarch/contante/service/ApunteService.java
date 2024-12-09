@@ -251,4 +251,8 @@ public class ApunteService implements ServiceInterface<ApunteEntity> {
                 .get(oRandomService.getRandomInt(0, (int) (oApunteRepository.count() - 1)));
     }
 
+
+    public ApunteEntity findFirstByMonth(int mes) {
+        return oApunteRepository.findFirstByMonth( mes );
+    }
 }
